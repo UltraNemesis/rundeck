@@ -258,6 +258,8 @@ class UrlMappings {
         "/project/$project/history"(controller: 'reports', action: 'index')
         "/project/$project/jobs/$groupPath**"(controller: 'menu', action: 'jobs')
         "/project/$project?/jobs"(controller: 'menu', action: 'jobs')
+        "/project/$project?/services"(controller: 'menu', action: 'services')
+        "/project/$project?/jobInstances"(controller: 'menu', action: 'jobInstances')
         "/project/$project/job/show/$id/$fullName**"(controller: 'scheduledExecution', action: 'show')
         "/project/$project/job/show/$id"(controller: 'scheduledExecution', action: 'show')
         "/project/$project/job/upload"(controller: 'scheduledExecution'){

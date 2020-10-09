@@ -12,6 +12,8 @@ class ControllerBaseInterceptor {
 
     public static final ArrayList<String> UIPLUGIN_PAGES = [
             'menu/jobs',
+            'menu/services',
+            'menu/jobInstances',
             'menu/home',
             'menu/projectHome',
             'menu/executionMode',

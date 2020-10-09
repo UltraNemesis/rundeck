@@ -25,6 +25,8 @@
 <g:set var="selectedclass" value="active"/>
 
 <g:set var="wfselected" value=""/>
+<g:set var="jobInstSelected" value=""/>
+<g:set var="srvSelected" value=""/>
 <ul id="sidebar-nav" class="nav">
 
 <g:if test="${request.getAttribute(RequestConstants.PAGE)}">
@@ -38,6 +40,16 @@
             <g:set var="wfselected" value="${selectedclass}"/>
         </g:ifPageProperty>
     </g:ifPageProperty>
+    <g:ifPageProperty name='meta.tabpage'>
+        <g:ifPageProperty name='meta.tabpage' equals='jobInstances'>
+            <g:set var="jobInstSelected" value="${selectedclass}"/>
+        </g:ifPageProperty>
+    </g:ifPageProperty>    
+    <g:ifPageProperty name='meta.tabpage'>
+        <g:ifPageProperty name='meta.tabpage' equals='services'>
+            <g:set var="srvSelected" value="${selectedclass}"/>
+        </g:ifPageProperty>
+    </g:ifPageProperty>    
     <g:set var="resselected" value=""/>
     <g:ifPageProperty name='meta.tabpage'>
         <g:ifPageProperty name='meta.tabpage' equals='nodes'>
@@ -91,6 +103,28 @@
             <i class="fas fa-tasks"></i>
             <p>
                 <g:message code="gui.menu.Workflows"/>
+            </p>
+        </g:link>
+    </li>
+    <li id="nav-job-instances-link" class="${enc(attr: jobInstSelected)}">
+        <g:link controller="menu" action="jobInstances" class=" toptab ${enc(attr: jobInstSelected)}" params="[project: projectName]">
+            <i class="fas fa fa-check-double"></i>
+            <p>
+                Job Instances
+                <!--
+                <g:message code="gui.menu.Workflows"/>
+                -->
+            </p>
+        </g:link>
+    </li>        
+    <li id="nav-services-link" class="${enc(attr: srvSelected)}">
+        <g:link controller="menu" action="services" class=" toptab ${enc(attr: srvSelected)}" params="[project: projectName]">
+            <i class="fas fa fa-check-square"></i>
+            <p>
+                Services
+                <!--
+                <g:message code="gui.menu.Workflows"/>
+                -->
             </p>
         </g:link>
     </li>
